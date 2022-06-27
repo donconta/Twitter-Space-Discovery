@@ -26,36 +26,56 @@
       <button class="btn btn-success">Search</button>
     </div>
   </form>
+  {% if count == "There are no spaces matching your search" %}
+  <div class="alert alert-danger" role="alert" align="center"> {{ count }}</div>
+  {% endif %}
 </div>
 
 <br>
+<div class="container">
+<div class="row bg-success text-black" class="row justify-content-start">
+  {% for space in spaces %}
+    {% if space.state == 'live' %}
+  <div class="container pt-5" class="col-sm-6" style="width: 25rem;">
+    <div class="card">
+      <div class="card-body" >
+        <h5 class="card-title">{{ space.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ space.state | upper }}</h6>
+        <p class="card-text"> Number of current participants: {{ space.participant_count }} </p>
+        <a href=https://mobile.twitter.com/i/spaces/{{space.id}}/peek class="btn btn-success"> Join </a>
+      </div>
+    </div>
+  </div>
+    {% endif %}
+  {% endfor %}
+</div>
+</div>
+
 <br>
 
-<div class="container pt-5">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Space Title</th>
-        <th>Live or Scheduled</th>
-        <th>Number of Participants</th>
-        <th>Join/Set Reminder</th>      
-      </tr>
-    </thead>
-    <tbody>
-      {% for space in spaces %}
-        <tr>
-          <td>{{ space.title }}</td>
-          <td>{{ space.state | upper }}</td>
-          <td>{{ space.participant_count }}</td>
-          <td>
-            <a href=https://mobile.twitter.com/i/spaces/{{space.id}}/peek class="btn btn-success"> Join/Schedule </a>
-          </td> 
-        </tr>      
-      {% endfor %}
-    </tbody>
-  </table>
+<div class="container">
+  
+<div class="row bg-secondary text-black" class="row justify-content-start">
+  
+    {% for space in spaces %}
+      {% if space.state == 'scheduled' %}
+        <div class="container pt-5" class="col-sm-6" style="width: 25rem;">
+          <div class="card" >
+          <div class="card-body">
+            <h5 class="card-title">{{ space.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ space.state | upper }}</h6>
+            <p class="card-text"> {{ space.subscriber_count }} Reminders set</p>
+            <p class="card-text"> Start Date and Time: {{ space.scheduled_start.strftime('%d-%m-%Y %H%MH') }} </p>
+            <a href=https://mobile.twitter.com/i/spaces/{{space.id}}/peek class="btn btn-success"> Set Reminder </a>
+          </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
 
 </div>
+</div>
+
 
 </body>
 </html>
