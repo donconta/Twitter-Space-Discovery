@@ -2,7 +2,7 @@
 
 Run pip install -r requirements.txt
 
-Replace credentials in "Auth.py" with 
+Replace credentials in "Auth.py" with you Twitter Developer Credentials 
 
   - Authentication Tokens
   access_token = "Your Credential Here"
