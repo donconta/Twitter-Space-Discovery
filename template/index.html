@@ -9,6 +9,15 @@
   <link href="/static/stylesheet.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <title>Twitter Space Search</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3QMVJP6VR"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K3QMVJP6VR');
+  </script>
 </head>
 
 {# What and how of the website #} 
@@ -53,7 +62,7 @@
                 <small class="card-meta mb-2">{{ space.state | title }}</small> {# Returns the state of the space #} 
                 <h4 class="card-title mt-0 "> {{ space.title | title }} </h4> {# Returns the title of the space #} 
                 <small><i class="far fa-clock"> Number of current participants: {{ space.participant_count }} </i> </small> {# Returns the number of participants on the space #} 
-                <p> <a href=https://mobile.twitter.com/i/spaces/{{space.id}}/peek target="_blank" class="btn btn-success"> Join </a></p>{# button directs to twitter to join the space #} 
+                <p> <a href=https://twitter.com/i/spaces/{{space.id}}/peek target="_blank" class="btn btn-success"> Join </a></p>{# button directs to twitter to join the space #} 
               </div>
               <div class="card-footer">
                 <div class="media">
@@ -94,7 +103,7 @@
                 <small class="card-meta mb-2">{{ space.state | title }}</small> {# Returns the state of the space #} 
                 <h4 class="card-title mt-0 "> {{ space.title | title }} </h4> {# Returns the title of the space #} 
                 <small><i class="far fa-clock">Date and Time (GMT): {{ space.scheduled_start.strftime('%d-%m-%Y %H%MH') }}</i> </small> {# Returns the start time of space #} 
-                <a href=https://mobile.twitter.com/i/spaces/{{space.id}}/peek target="_blank" class="btn btn-success"> Set Reminder </a> {# button directs to twitter to set reminder for the space #} 
+                <a href=https://twitter.com/i/spaces/{{space.id}}/peek target="_blank" class="btn btn-success"> Set Reminder </a> {# button directs to twitter to set reminder for the space #} 
               </div>
               <div class="card-footer">
                 <div class="media">
@@ -133,8 +142,8 @@
       </a>
 
       <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item"><a href="https://temitopeomoniyi.com" target="_parent" class="nav-link px-2 text-muted">Personal Website /</a></li>
-        <li class="nav-item"><a href="https://twitter.com/don_contra" target="_parent" class="nav-link px-2 text-muted">/ Twitter</a></li>
+        <li class="nav-item"><a href="https://bit.ly/3cDXTAP" target="_parent" class="nav-link px-2 text-muted">Personal Website /</a></li>
+        <li class="nav-item"><a href="https://bit.ly/3cqwzpE" target="_parent" class="nav-link px-2 text-muted">/ Twitter</a></li>
       </ul>
     </footer>
   </div>

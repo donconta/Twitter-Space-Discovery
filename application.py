@@ -1,10 +1,11 @@
 #Import relevant modules Tweepy, Flask and auth
 import tweepy
+from email.mime import application
 from flask import (Flask, render_template, request)
 from auth import (access_token, access_token_secret, api_key, api_key_secret,
                   bearer_token)
 
-app = Flask(__name__, template_folder="template", static_folder="static")
+application = Flask(__name__, template_folder="template", static_folder="static")
 
 #function to get the credentials see - https://docs.tweepy.org/en/stable/client.html
 def client_cred():
@@ -12,7 +13,7 @@ def client_cred():
   return client
 
 #define Flask route
-@app.route("/", methods=['GET','POST'])
+@application.route("/", methods=['GET','POST'])
 def index():
   if request.method == 'POST':
     #This helps retrieve the search term which is used in the Twitter API query
@@ -39,4 +40,4 @@ def index():
 
 
 if __name__ == "__main__":
-  app.run(host = "127.0.0.1", debug = False)
+  application.run(host = "127.0.0.1", debug = True)
